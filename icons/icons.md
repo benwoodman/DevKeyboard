@@ -1,1 +1,0 @@
-The script will look for these icons in the same folder as the script is located. Please move them to that folder.
