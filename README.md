@@ -6,7 +6,8 @@ DevKeyboard is a simple program that I created for a school project. When the QW
 
 <b>Website: http://devkeyboard.woodmantech.com</b>
 
-DevKeyboard is written completely in AutoHotKey Script, so if you want to edit any of my code; download AutoHotKey.
+DevKeyboard is a lightweight program that runs in the background of your computer, and creates shortcuts to common programming keys and symbols. It is written completely in AutoHotKey Script, so if you want to edit any of my code; download AutoHotKey.
+
 <ul>
   <li>Download compiled release of AutoHotKey <a href="http://www.autohotkey.com/" target="_blank">here</a>.</li>
   <li>View AutoHotKey GitHub page <a href="https://github.com/AutoHotkey/AutoHotkey" target="_blank">here</a>.</li>
