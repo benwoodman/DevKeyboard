@@ -393,7 +393,7 @@ if errorlevel
 Return
 
 $`;::
-send {%semicolonkey%}
+send {;}
 KeyWait `;, t%time%
 if errorlevel
 	send {Right}{Raw};
