@@ -8,19 +8,15 @@ DevKeyboard is a simple program that I created for a school project. When the QW
 
 DevKeyboard is a lightweight program that runs in the background of your computer, and creates shortcuts to common programming keys and symbols. It is written completely in AutoHotKey Script, so if you want to edit any of my code; download AutoHotKey.
 
-<ul>
-  <li>Download compiled release of AutoHotKey <a href="http://www.autohotkey.com/" target="_blank">here</a>.</li>
-  <li>View AutoHotKey GitHub page <a href="https://github.com/AutoHotkey/AutoHotkey" target="_blank">here</a>.</li>
-</ul>
+* Download compiled release of AutoHotKey <a href="http://www.autohotkey.com/" target="_blank">here</a>.
+* View AutoHotKey GitHub page <a href="https://github.com/AutoHotkey/AutoHotkey" target="_blank">here</a>.
 
 ## Downloading
 
 DevKeyboard can be downloaded one of two ways:
 
-<ul>
-  <li><b>Download compiled release</b> <a href="https://github.com/babin101/DevKeyboard/releases" target="_blank">here</a>.</li>
-  <li><b>Download the source code by clicking "Download ZIP" on the sidebar.</b></li>
-</ul>
+* <b>Download compiled release</b> <a href="https://github.com/babin101/DevKeyboard/releases" target="_blank">here</a>.
+* <b>Download the source code by clicking "Download ZIP" on the sidebar.</b>
 
 ## Using DevKeyboard
 
@@ -42,7 +38,7 @@ DevKeyboard is a completely different kind of keyboard than any other keyboard c
 | x  | + | Yes |
 | c  | & | Yes |
 | v  | = | Yes |
-| b  | (double vertical bar) | Yes |
+| b  | &#124;&#124; | Yes |
 | n  | == | Yes |
 | m  | " | Yes |
 | ,  | && | Yes |
@@ -53,13 +49,11 @@ DevKeyboard is a completely different kind of keyboard than any other keyboard c
 
 When you start up DevKeyboard for the first time it will have the default layout that I have created, and think is great for most programming languages. However, if you would like to change the default layout so it is more suited for your needs; follow these instructions.
 
-<ol type="1">
-  <li>Find the <img src="https://raw.githubusercontent.com/babin101/DevKeyboard/master/icons/Power-ON.ico"> icon in your tray and right click it.</li>
-  <li>Click "Settings".</li>
-  <li>Change the time and/or remap of the keys.</li>
-  <li>Click "Save".</li>
-  <li>DevKeyboard will restart with your new settings</li>
-</ol>
+1. Find the ![Power on icon](https://raw.githubusercontent.com/babin101/DevKeyboard/master/Power-ON.ico) icon in your tray and right click it.
+1. Click "Settings".
+1. Change the time and/or remap of the keys.
+1. Click "Save".
+1. DevKeyboard will restart with your new settings
 
 ### Editing DevKeyboard Code
 
