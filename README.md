@@ -53,7 +53,7 @@ DevKeyboard is a completely different kind of keyboard than any other keyboard c
 When you start up DevKeyboard for the first time it will have the default layout that I have created, and think is great for most programming languages. However, if you would like to change the default layout so it is more suited for your needs; follow these instructions.
 
 <ol type="1">
-  <li>Find the <img src="https://raw.githubusercontent.com/babin101/DevKeyboard/master/icons/Power-ON.ico"> icon in your tray and right click it.</li>
+  <li>Find the <img src="https://raw.githubusercontent.com/babin101/DevKeyboard/master/Power-ON.ico"> icon in your tray and right click it.</li>
   <li>Click "Settings".</li>
   <li>Change the time and/or remap of the keys.</li>
   <li>Click "Save".</li>
