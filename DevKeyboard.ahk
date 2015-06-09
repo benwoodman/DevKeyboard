@@ -19,16 +19,12 @@ if not ErrorLevel  ; Successfully loaded.
 	
 	
 }
-Else
 
-IfNotExist, %A_AppData%\Microsoft\Windows\Start Menu\Programs\Startup\ANSCI_Keyboard.lnk
-    FileCreateShortcut, %A_ScriptDir%\ansci.exe, %A_AppData%\Microsoft\Windows\Start Menu\Programs\Startup\ANSCI_Keyboard.lnk
+IfNotExist %A_AppData%\DevKeyboard
+	FileCreateDir, %A_AppData%\DevKeyboard
 
 IfNotExist %A_AppData%\DevKeyboard\time.txt 
 	FileAppend, 0.15, %A_AppData%\DevKeyboard\time.txt
-
-IfNotExist %A_AppData%\DevKeyboard\p.txt 
-	FileAppend, q, %A_AppData%\DevKeyboard\p.txt
 
 IfNotExist %A_AppData%\DevKeyboard\G.txt 
 	FileAppend, <, %A_AppData%\DevKeyboard\G.txt 
@@ -85,8 +81,6 @@ IfNotExist %A_AppData%\DevKeyboard\Comma.txt
 Gui, Add, Text,, Hold Down Time:
 Gui, Add, Edit, R1 vTimeSetting
 
-Gui, Add, Text,, Edit P:
-Gui, Add, Edit, r1 vPEdit
 Gui, Add, Text,, Edit G:
 Gui, Add, Edit, r1 vGEdit
 Gui, Add, Text,, Edit H:
@@ -101,9 +95,9 @@ Gui, Add, Text,, Edit K:
 Gui, Add, Edit, r1 vKEdit
 Gui, Add, Text,, Edit S:
 Gui, Add, Edit, r1 vSEdit
-Gui, Add, Text,ym, Edit A:
+Gui, Add, Text,, Edit A:
 Gui, Add, Edit, r1 vAEdit
-Gui, Add, Text,, Edit Z:
+Gui, Add, Text,ym, Edit Z:
 Gui, Add, Edit, r1 vZEdit
 Gui, Add, Text,, Edit X:
 Gui, Add, Edit, r1 vXEdit
@@ -124,9 +118,6 @@ Gui, Add, Button, gYouPressed, Save
 FileRead, FileContents, %A_AppData%\DevKeyboard\time.txt
 time = %FileContents%
 
-FileRead, FileContentsP, %A_AppData%\DevKeyboard\p.txt
-pkey = %FileContentsP%
-
 FileRead, FileContentsG, %A_AppData%\DevKeyboard\G.txt
 gkey = %FileContentsG%
 
@@ -143,16 +134,13 @@ FileRead, FileContentsD, %A_AppData%\DevKeyboard\D.txt
 dkey = %FileContentsD%
 
 FileRead, FileContentsK, %A_AppData%\DevKeyboard\K.txt
-kkey = %FileContentsH%
+kkey = %FileContentsK%
 
 FileRead, FileContentsS, %A_AppData%\DevKeyboard\S.txt
 skey = %FileContentsS%
 
 FileRead, FileContentsA, %A_AppData%\DevKeyboard\A.txt
 akey = %FileContentsA%
-
-FileRead, FileContentsSemicolon, %A_AppData%\DevKeyboard\Semicolon.txt
-semicolonkey = %FileContentsSemicolon%
 
 FileRead, FileContentsZ, %A_AppData%\DevKeyboard\Z.txt
 zkey = %FileContentsZ%
@@ -170,7 +158,7 @@ FileRead, FileContentsB, %A_AppData%\DevKeyboard\B.txt
 bkey = %FileContentsB%
 
 FileRead, FileContentsN, %A_AppData%\DevKeyboard\N.txt
-hhkey = %FileContentsN%
+nkey = %FileContentsN%
 
 FileRead, FileContentsM, %A_AppData%\DevKeyboard\M.txt
 mkey = %FileContentsM%
@@ -204,7 +192,6 @@ GuiControl,, DEdit, %FileContentsD%
 GuiControl,, KEdit, %FileContentsK%
 GuiControl,, SEdit, %FileContentsS%
 GuiControl,, AEdit, %FileContentsA%
-GuiControl,, SemicolonEdit, %FileContentsSemicolon%
 GuiControl,, ZEdit, %FileContentsZ%
 GuiControl,, XEdit, %FileContentsX%
 GuiControl,, CEdit, %FileContentsC%
@@ -213,7 +200,6 @@ GuiControl,, BEdit, %FileContentsB%
 GuiControl,, NEdit, %FileContentsN%
 GuiControl,, MEdit, %FileContentsM%
 GuiControl,, CommaEdit, %FileContentsComma%
-GuiControl,, PEdit, %FileContentsP%
 Gui, Show, w270 h500, Settings
 return
 
@@ -224,12 +210,6 @@ VarSig = %TimeSetting%
 FileDelete, %A_AppData%\DevKeyboard\time.txt
 FileAppend, %A_AppData%\DevKeyboard\time.txt
 FileAppend, %VarSig%, %A_AppData%\DevKeyboard\time.txt
-
-GuiControlGet, PEdit
-PNew = %PEdit%
-FileDelete, %A_AppData%\DevKeyboard\p.txt
-FileAppend, %A_AppData%\DevKeyboard\p.txt
-FileAppend, %PNew%, %A_AppData%\DevKeyboard\p.txt
 
 GuiControlGet, GEdit
 GNew = %GEdit%
@@ -278,12 +258,6 @@ ANew = %AEdit%
 FileDelete, %A_AppData%\DevKeyboard\A.txt
 FileAppend, %A_AppData%\DevKeyboard\A.txt
 FileAppend, %ANew%, %A_AppData%\DevKeyboard\A.txt
-
-GuiControlGet, SemicolonEdit
-SemicolonNew = %SemicolonEdit%
-FileDelete, %A_AppData%\DevKeyboard\Semicolon.txt
-FileAppend, %A_AppData%\DevKeyboard\Semicolon.txt
-FileAppend, %SemicolonNew%, %A_AppData%\DevKeyboard\Semicolon.txt
 
 GuiControlGet, ZEdit
 ZNew = %ZEdit%
@@ -356,14 +330,6 @@ KeyWait h, t%time%
 if errorlevel
 	send {BS 1}{Raw}%hkey%
 	KeyWait, h, U
-Return
-
-$p::
-send p	
-KeyWait p, t%time%
-if errorlevel
-	send {BS 1}{Raw}%pkey%
-	KeyWait, p, U
 Return
 
 $f::
