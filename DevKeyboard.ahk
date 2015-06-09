@@ -6,7 +6,7 @@ FileRead, latestversion, %A_AppData%\DevKeyboard\Latest_Version.txt
 
 if not ErrorLevel  ; Successfully loaded.
 {
-    if latestversion > 1.1
+    if latestversion > 1.2
 	{
 		MsgBox NEW UPDATE: Please press "OK" to update DevKeyboard to version %latestversion%.
 			if not ErrorLevel 
