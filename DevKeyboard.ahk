@@ -97,7 +97,9 @@ Gui, Add, Text,, Edit S:
 Gui, Add, Edit, r1 vSEdit
 Gui, Add, Text,, Edit A:
 Gui, Add, Edit, r1 vAEdit
-Gui, Add, Text,ym, Edit Z:
+Gui, Add, Text,ym, Edit L:
+Gui, Add, Edit, r1 vLEdit
+Gui, Add, Text,, Edit Z:
 Gui, Add, Edit, r1 vZEdit
 Gui, Add, Text,, Edit X:
 Gui, Add, Edit, r1 vXEdit
@@ -141,6 +143,9 @@ skey = %FileContentsS%
 
 FileRead, FileContentsA, %A_AppData%\DevKeyboard\A.txt
 akey = %FileContentsA%
+
+FileRead, FileContentsL, %A_AppData%\DevKeyboard\L.txt
+lkey = %FileContentsL%
 
 FileRead, FileContentsZ, %A_AppData%\DevKeyboard\Z.txt
 zkey = %FileContentsZ%
@@ -192,6 +197,7 @@ GuiControl,, DEdit, %FileContentsD%
 GuiControl,, KEdit, %FileContentsK%
 GuiControl,, SEdit, %FileContentsS%
 GuiControl,, AEdit, %FileContentsA%
+GuiControl,, LEdit, %FileContentsL%
 GuiControl,, ZEdit, %FileContentsZ%
 GuiControl,, XEdit, %FileContentsX%
 GuiControl,, CEdit, %FileContentsC%
@@ -258,6 +264,12 @@ ANew = %AEdit%
 FileDelete, %A_AppData%\DevKeyboard\A.txt
 FileAppend, %A_AppData%\DevKeyboard\A.txt
 FileAppend, %ANew%, %A_AppData%\DevKeyboard\A.txt
+
+GuiControlGet, LEdit
+LNew = %LEdit%
+FileDelete, %A_AppData%\DevKeyboard\L.txt
+FileAppend, %A_AppData%\DevKeyboard\L.txt
+FileAppend, %LNew%, %A_AppData%\DevKeyboard\L.txt
 
 GuiControlGet, ZEdit
 ZNew = %ZEdit%
@@ -384,7 +396,7 @@ $`;::
 send {%semicolonkey%}
 KeyWait `;, t%time%
 if errorlevel
-	send {BS 1}{Right}{Raw};
+	send {Right}{Raw};
 	KeyWait, `;, U
 Return
 
