@@ -47,7 +47,7 @@ DevKeyboard is a completely different kind of keyboard than any other keyboard c
 
 You can disable DevKeyboard temporarily by pressing:
 
-<Start> + J
+(Start) + J
 
 Press these two buttons again to re-enable the hotkeys again.
 
