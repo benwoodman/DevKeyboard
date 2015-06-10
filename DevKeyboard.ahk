@@ -1,12 +1,14 @@
 Menu, Tray, Icon, %A_ScriptDir%\Power-LOAD.ico, 1, 1
 
+#SingleInstance ignore
+
 UrlDownloadToFile, http://woodmantech.com/versions/DevKeyboardVersion.txt, %A_AppData%\DevKeyboard\Latest_Version.txt
 
 FileRead, latestversion, %A_AppData%\DevKeyboard\Latest_Version.txt
 
 if not ErrorLevel  ; Successfully loaded.
 {
-    if latestversion > 1.2
+    if latestversion > 1.3
 	{
 		MsgBox NEW UPDATE: Please press "OK" to update DevKeyboard to version %latestversion%.
 			if not ErrorLevel 
@@ -77,6 +79,39 @@ IfNotExist %A_AppData%\DevKeyboard\M.txt
 IfNotExist %A_AppData%\DevKeyboard\Comma.txt 
 	FileAppend, &&, %A_AppData%\DevKeyboard\Comma.txt 
 
+IfNotExist %A_AppData%\DevKeyboard\Semicolon.txt 
+	FileAppend, true, %A_AppData%\DevKeyboard\Semicolon.txt 
+
+IfNotExist %A_AppData%\DevKeyboard\Q.txt 
+	FileAppend,, %A_AppData%\DevKeyboard\Q.txt 
+
+IfNotExist %A_AppData%\DevKeyboard\W.txt 
+	FileAppend,, %A_AppData%\DevKeyboard\W.txt 
+
+IfNotExist %A_AppData%\DevKeyboard\E.txt 
+	FileAppend,, %A_AppData%\DevKeyboard\E.txt 
+
+IfNotExist %A_AppData%\DevKeyboard\R.txt 
+	FileAppend,, %A_AppData%\DevKeyboard\R.txt 
+
+IfNotExist %A_AppData%\DevKeyboard\T.txt 
+	FileAppend,, %A_AppData%\DevKeyboard\T.txt 
+
+IfNotExist %A_AppData%\DevKeyboard\Y.txt 
+	FileAppend,, %A_AppData%\DevKeyboard\Y.txt 
+
+IfNotExist %A_AppData%\DevKeyboard\U.txt 
+	FileAppend,, %A_AppData%\DevKeyboard\U.txt 
+
+IfNotExist %A_AppData%\DevKeyboard\I.txt 
+	FileAppend,, %A_AppData%\DevKeyboard\I.txt 
+
+IfNotExist %A_AppData%\DevKeyboard\O.txt 
+	FileAppend,, %A_AppData%\DevKeyboard\O.txt 
+
+IfNotExist %A_AppData%\DevKeyboard\P.txt 
+	FileAppend,, %A_AppData%\DevKeyboard\P.txt 
+
 
 Gui, Add, Text,, Hold Down Time:
 Gui, Add, Edit, R1 vTimeSetting
@@ -115,7 +150,31 @@ Gui, Add, Text,, Edit M:
 Gui, Add, Edit, r1 vMEdit
 Gui, Add, Text,, Edit Comma:
 Gui, Add, Edit, r1 vCommaEdit
+Gui, Add, Text,ym, Edit Q:
+Gui, Add, Edit, r1 vQEdit
+Gui, Add, Text,, Edit W:
+Gui, Add, Edit, r1 vWEdit
+Gui, Add, Text,, Edit E:
+Gui, Add, Edit, r1 vEEdit
+Gui, Add, Text,, Edit R:
+Gui, Add, Edit, r1 vREdit
+Gui, Add, Text,, Edit T:
+Gui, Add, Edit, r1 vTEdit
+Gui, Add, Text,, Edit Y:
+Gui, Add, Edit, r1 vYEdit
+Gui, Add, Text,, Edit U:
+Gui, Add, Edit, r1 vUEdit
+Gui, Add, Text,, Edit I:
+Gui, Add, Edit, r1 vIEdit
+Gui, Add, Text,, Edit O:
+Gui, Add, Edit, r1 vOEdit
+Gui, Add, Text,ym, Edit P:
+Gui, Add, Edit, r1 vPEdit
+
+
+Gui, Add, Checkbox, vSemicolonEdit, Enable semicolon`nshortcut key
 Gui, Add, Button, gYouPressed, Save
+Gui, Add, Text,, DevKeyboard Version 1.3
 
 FileRead, FileContents, %A_AppData%\DevKeyboard\time.txt
 time = %FileContents%
@@ -171,6 +230,39 @@ mkey = %FileContentsM%
 FileRead, FileContentsComma, %A_AppData%\DevKeyboard\Comma.txt
 commakey = %FileContentsComma%
 
+FileRead, FileContentsSemicolon, %A_AppData%\DevKeyboard\Semicolon.txt
+semicolonkey = %FileContentsSemicolon%
+
+FileRead, FileContentsQ, %A_AppData%\DevKeyboard\Q.txt
+qkey = %FileContentsQ%
+
+FileRead, FileContentsW, %A_AppData%\DevKeyboard\W.txt
+wkey = %FileContentsW%
+
+FileRead, FileContentsE, %A_AppData%\DevKeyboard\E.txt
+ekey = %FileContentsE%
+
+FileRead, FileContentsR, %A_AppData%\DevKeyboard\R.txt
+rkey = %FileContentsR%
+
+FileRead, FileContentsT, %A_AppData%\DevKeyboard\T.txt
+tkey = %FileContentsT%
+
+FileRead, FileContentsY, %A_AppData%\DevKeyboard\Y.txt
+ykey = %FileContentsY%
+
+FileRead, FileContentsU, %A_AppData%\DevKeyboard\U.txt
+ukey = %FileContentsU%
+
+FileRead, FileContentsI, %A_AppData%\DevKeyboard\I.txt
+ikey = %FileContentsI%
+
+FileRead, FileContentsO, %A_AppData%\DevKeyboard\O.txt
+okey = %FileContentsO%
+
+FileRead, FileContentsP, %A_AppData%\DevKeyboard\P.txt
+pkey = %FileContentsP%
+
 Menu, Tray, Icon, %A_ScriptDir%\Power-ON.ico, 1, 1
 
 
@@ -206,7 +298,23 @@ GuiControl,, BEdit, %FileContentsB%
 GuiControl,, NEdit, %FileContentsN%
 GuiControl,, MEdit, %FileContentsM%
 GuiControl,, CommaEdit, %FileContentsComma%
-Gui, Show, w270 h500, Settings
+GuiControl,, QEdit, %FileContentsQ%
+GuiControl,, WEdit, %FileContentsW%
+GuiControl,, EEdit, %FileContentsE%
+GuiControl,, REdit, %FileContentsR%
+GuiControl,, TEdit, %FileContentsT%
+GuiControl,, YEdit, %FileContentsY%
+GuiControl,, UEdit, %FileContentsU%
+GuiControl,, IEdit, %FileContentsI%
+GuiControl,, OEdit, %FileContentsO%
+GuiControl,, PEdit, %FileContentsP%
+
+if var FileContentsSemicolon = "true"
+{
+	GuiControl,, SemicolonEdit, 1
+}
+
+Gui, Show, w535 h440, Settings
 return
 
 YouPressed:
@@ -319,6 +427,77 @@ FileDelete, %A_AppData%\DevKeyboard\Comma.txt
 FileAppend, %A_AppData%\DevKeyboard\Comma.txt
 FileAppend, %CommaNew%, %A_AppData%\DevKeyboard\Comma.txt
 
+GuiControlGet, QEdit
+QNew = %QEdit%
+FileDelete, %A_AppData%\DevKeyboard\Q.txt
+FileAppend, %A_AppData%\DevKeyboard\Q.txt
+FileAppend, %QNew%, %A_AppData%\DevKeyboard\Q.txt
+
+GuiControlGet, WEdit
+WNew = %WEdit%
+FileDelete, %A_AppData%\DevKeyboard\W.txt
+FileAppend, %A_AppData%\DevKeyboard\W.txt
+FileAppend, %WNew%, %A_AppData%\DevKeyboard\W.txt
+
+GuiControlGet, EEdit
+ENew = %EEdit%
+FileDelete, %A_AppData%\DevKeyboard\E.txt
+FileAppend, %A_AppData%\DevKeyboard\E.txt
+FileAppend, %ENew%, %A_AppData%\DevKeyboard\E.txt
+
+GuiControlGet, REdit
+RNew = %REdit%
+FileDelete, %A_AppData%\DevKeyboard\R.txt
+FileAppend, %A_AppData%\DevKeyboard\R.txt
+FileAppend, %RNew%, %A_AppData%\DevKeyboard\R.txt
+
+GuiControlGet, TEdit
+TNew = %TEdit%
+FileDelete, %A_AppData%\DevKeyboard\T.txt
+FileAppend, %A_AppData%\DevKeyboard\T.txt
+FileAppend, %TNew%, %A_AppData%\DevKeyboard\T.txt
+
+GuiControlGet, YEdit
+YNew = %YEdit%
+FileDelete, %A_AppData%\DevKeyboard\Y.txt
+FileAppend, %A_AppData%\DevKeyboard\Y.txt
+FileAppend, %YNew%, %A_AppData%\DevKeyboard\Y.txt
+
+GuiControlGet, UEdit
+UNew = %UEdit%
+FileDelete, %A_AppData%\DevKeyboard\U.txt
+FileAppend, %A_AppData%\DevKeyboard\U.txt
+FileAppend, %UNew%, %A_AppData%\DevKeyboard\U.txt
+
+GuiControlGet, IEdit
+INew = %IEdit%
+FileDelete, %A_AppData%\DevKeyboard\I.txt
+FileAppend, %A_AppData%\DevKeyboard\I.txt
+FileAppend, %INew%, %A_AppData%\DevKeyboard\I.txt
+
+GuiControlGet, OEdit
+ONew = %OEdit%
+FileDelete, %A_AppData%\DevKeyboard\O.txt
+FileAppend, %A_AppData%\DevKeyboard\O.txt
+FileAppend, %ONew%, %A_AppData%\DevKeyboard\O.txt
+
+GuiControlGet, PEdit
+PNew = %PEdit%
+FileDelete, %A_AppData%\DevKeyboard\P.txt
+FileAppend, %A_AppData%\DevKeyboard\P.txt
+FileAppend, %PNew%, %A_AppData%\DevKeyboard\P.txt
+
+GuiControlGet, SemicolonEdit
+SemicolonNew = %SemicolonEdit%
+FileDelete, %A_AppData%\DevKeyboard\Semicolon.txt
+FileAppend, %A_AppData%\DevKeyboard\Semicolon.txt
+if SemicolonEdit = 1 
+{
+	FileAppend, true, %A_AppData%\DevKeyboard\Semicolon.txt
+}
+Else
+	FileAppend,, %A_AppData%\DevKeyboard\Semicolon.txt
+
 FileRead, FileContents, %A_AppData%\DevKeyboard\time.txt
 time = %FileContents%
 
@@ -329,146 +508,337 @@ Reload
 return
 
 $g::
-send {g}	
-KeyWait g, t%time%
-if errorlevel
-	send {BS 1}{Raw}%gkey%
-	KeyWait, g, U
-Return
+send {g}
 
+if var gkey 
+{
+	KeyWait g, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%gkey%
+		KeyWait, g, U
+}
+Return
+	
 $h::
-send {h}	
-KeyWait h, t%time%
-if errorlevel
-	send {BS 1}{Raw}%hkey%
-	KeyWait, h, U
+send {h}
+
+if var hkey 
+{
+	KeyWait h, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%hkey%
+		KeyWait, h, U
+}
 Return
 
 $f::
-send {f}	
-KeyWait f, t%time%
-if errorlevel
-	send {BS 1}{Raw}%fkey%
-	KeyWait, f, U
-Return
+send {f}
+
+if var fkey 
+{	
+	KeyWait f, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%fkey%
+		KeyWait, f, U
+	Return
+}
 
 $j::
 send {j}
-KeyWait j, t%time%
-if errorlevel
-	send {BS 1}{Raw}%jkey%
-	KeyWait, j, U
-Return
+
+if var jkey 
+{
+	KeyWait j, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%jkey%
+		KeyWait, j, U
+	Return
+}
 
 $d::
 send {d}
-KeyWait d, t%time%
-if errorlevel
-	send {BS 1}{Raw}%dkey%
-	KeyWait, d, U
-Return
+
+if var dkey 
+{
+	KeyWait d, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%dkey%
+		KeyWait, d, U
+	Return
+}
 
 $k::
 send {k}
-KeyWait k, t%time%
-if errorlevel
-	send {BS 1}{Raw}%kkey%
-	KeyWait, k, U
+
+if var kkey
+{
+	KeyWait k, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%kkey%
+		KeyWait, k, U
+}
 Return
 
 $s::
 send {s}
-KeyWait s, t%time%
-if errorlevel
-	send {BS 1}{Raw}%skey%
-	KeyWait, s, U
+
+if var skey 
+{
+	KeyWait s, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%skey%
+		KeyWait, s, U
+}
 Return
 
 $a::
 send {a}
-KeyWait a, t%time%
-if errorlevel
-	send {BS 1}{Raw}%akey%
-	KeyWait, a, U
+
+if var akey 
+{
+	KeyWait a, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%akey%
+		KeyWait, a, U
+}
 Return
 
 $`;::
 send {;}
-KeyWait `;, t%time%
-if errorlevel
-	send {Right}{Raw};
-	KeyWait, `;, U
+
+if var semicolonkey
+{
+	KeyWait `;, t%time%
+	if errorlevel
+		send {BS 1}{Right}{Raw};
+		KeyWait, `;, U
+}
 Return
 
 $l::
 send {l}
-KeyWait l, t%time%
-if errorlevel
-	send {BS 1}{Raw}%lkey%
-	KeyWait, l, U
+
+if var lkey 
+{
+	KeyWait l, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%lkey%
+		KeyWait, l, U
+}
 Return
 
 $z::
 send {z}
-KeyWait z, t%time%
-if errorlevel
-	send {BS 1}{Raw}%zkey%
-	KeyWait, z, U
+
+if var zkey 
+{
+	KeyWait z, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%zkey%
+		KeyWait, z, U
+}
 Return
 
 $x::
 send {x}
-KeyWait x, t%time%
-if errorlevel
-	send {BS 1}{Raw}%xkey%
-	KeyWait, x, U
+
+if var xkey 
+{
+	KeyWait x, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%xkey%
+		KeyWait, x, U
+}
 Return
 
 $c::
 send {c}
-KeyWait c, t%time%
-if errorlevel
-	send {BS 1}{Raw}%ckey%
-	KeyWait, c, U
+
+if var ckey 
+{
+	KeyWait c, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%ckey%
+		KeyWait, c, U
+}
 Return
 
 $v::
 send {v}
-KeyWait v, t%time%
-if errorlevel
-	send {BS 1}{Raw}%vkey%
-	KeyWait, v, U
+
+if var vkey 
+{
+	KeyWait v, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%vkey%
+		KeyWait, v, U
+}
 Return
 
 $b::
 send {b}
-KeyWait b, t%time%
-if errorlevel
-	Send {BS 1}{Raw}%bkey%
-	KeyWait, b, U
+
+if var bkey 
+{
+	KeyWait b, t%time%
+	if errorlevel
+		Send {BS 1}{Raw}%bkey%
+		KeyWait, b, U
+}
 Return
 
 $n::
 send {n}
-KeyWait n, t%time%
-if errorlevel
-	send {BS 1}{Raw}%nkey%
-	KeyWait, n, U
+
+if var nkey 
+{
+	KeyWait n, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%nkey%
+		KeyWait, n, U
+}
 Return
 
 $m::
 send {m}
-KeyWait m, t%time%
-if errorlevel
-	send {BS 1}{Raw}%mkey%
-	KeyWait, m, U
+
+if var mkey 
+{
+	KeyWait m, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%mkey%
+		KeyWait, m, U
+}
 Return
 
 $,::
 send {,}
-KeyWait `,, t%time%
-if errorlevel
-	send {BS 1}{Raw}%commakey%
-	KeyWait, `,, U
+
+if var commakey 
+{
+	KeyWait `,, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%commakey%
+		KeyWait, `,, U
+}
 Return
 
+$q::
+send {q}
+
+if var qkey 
+{
+	KeyWait q, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%qkey%
+		KeyWait, q, U
+}
+Return
+
+$w::
+send {w}
+
+if var wkey 
+{
+	KeyWait w, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%wkey%
+		KeyWait, w, U
+}
+Return
+
+$e::
+send {e}
+
+if var ekey 
+{
+	KeyWait e, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%ekey%
+		KeyWait, e, U
+}
+Return
+
+$r::
+send {r}
+
+if var rkey 
+{
+	KeyWait r, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%rkey%
+		KeyWait, r, U
+}
+Return
+
+$t::
+send {t}
+
+if var tkey 
+{
+	KeyWait t, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%tkey%
+		KeyWait, t, U
+}
+Return
+
+$y::
+send {y}
+
+if var ykey 
+{
+	KeyWait y, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%ykey%
+		KeyWait, y, U
+}
+Return
+
+$u::
+send {u}
+
+if var ukey 
+{
+	KeyWait u, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%ukey%
+		KeyWait, u, U
+}
+Return
+
+$i::
+send {i}
+
+if var ikey 
+{
+	KeyWait i, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%ikey%
+		KeyWait, i, U
+}
+Return
+
+$o::
+send {o}
+
+if var okey 
+{
+	KeyWait o, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%okey%
+		KeyWait, o, U
+}
+Return
+
+$p::
+send {p}
+
+if var pkey 
+{
+	KeyWait p, t%time%
+	if errorlevel
+		send {BS 1}{Raw}%pkey%
+		KeyWait, p, U
+}
+Return
