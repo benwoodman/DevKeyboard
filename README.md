@@ -43,6 +43,14 @@ DevKeyboard is a completely different kind of keyboard than any other keyboard c
 | m  | " | Yes |
 | ,  | && | Yes |
 
+## Disabling DevKeyboard
+
+You can disable DevKeyboard temporarily by pressing:
+
+<Start> + J
+
+Press these two buttons again to re-enable the hotkeys again.
+
 
 
 ## Editing DevKeyboard's Settings
