@@ -51,7 +51,7 @@ When you start up DevKeyboard for the first time it will have the default layout
 
 1. Find the ![Power on icon](https://raw.githubusercontent.com/babin101/DevKeyboard/master/Power-ON.ico) icon in your tray and right click it.
 1. Click "Settings".
-1. Change the time and/or remap of the keys.
+1. Change the time and/or remap any of the keys.
 1. Click "Save".
 1. DevKeyboard will restart with your new settings
 
