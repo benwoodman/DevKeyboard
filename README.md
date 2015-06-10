@@ -39,7 +39,7 @@ Layout of DevKeyboard's default layout. This layout can be changed very easily. 
 | s  | [ | Yes |
 | l  | ] | Yes |
 | a  | ! | Yes |
-| ;  | →; | No |
+| ;  | (right arrow) + ; | No, but can be disabled |
 | z  | ` | Yes |
 | x  | + | Yes |
 | c  | & | Yes |
@@ -48,6 +48,16 @@ Layout of DevKeyboard's default layout. This layout can be changed very easily. 
 | n  | == | Yes |
 | m  | " | Yes |
 | ,  | && | Yes |
+| q  | (No default) | Yes |
+| w  | (No default) | Yes |
+| e  | (No default) | Yes |
+| r  | (No default) | Yes |
+| t  | (No default) | Yes |
+| y  | (No default) | Yes |
+| u  | (No default) | Yes |
+| i  | (No default) | Yes |
+| o  | (No default) | Yes |
+| p  | (No default) | Yes |
 
 ## Disabling DevKeyboard
 
@@ -68,6 +78,16 @@ When you start up DevKeyboard for the first time it will have the default layout
 1. Change the time and/or remap any of the keys.
 1. Click "Save".
 1. DevKeyboard will restart with your new settings
+
+## Disabling a Shortcut
+
+You can disable a shortcut by following these steps:
+
+1. Find the ![Power on icon](https://raw.githubusercontent.com/babin101/DevKeyboard/master/Power-ON.ico) icon in your tray and right click it.
+1. Click "Settings".
+1. Erase the contents of the textbox for the shortcut you would like to disable.
+1. Click "Save".
+1. DevKeyboard will restart with your new settings, and now the key will behave as normal.
 
 ### Editing DevKeyboard Code
 
