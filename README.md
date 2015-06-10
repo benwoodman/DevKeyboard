@@ -22,6 +22,12 @@ DevKeyboard can be downloaded one of two ways:
 
 DevKeyboard is a completely different kind of keyboard than any other keyboard currently out there. All of the keys still work as they normally would, however they each also have a shortcut. When you hold down one of the keys for a set amount of time - 0.15 seconds is default, however this can be changed in settings (see below) - a new symbol appears. For example if you press the letter "f", "f" will be printed on the screen. However if you hold down "f", "{" will be printed on the screen. See a full list of shortcut keys below, and please note that any of these remaps can be changed in the settings menu.
 
+## Layout
+
+Layout of DevKeyboard's default layout. This layout can be changed very easily. To learn how to change the layout, [click here](https://github.com/babin101/DevKeyboard#editing-devkeyboards-settings).
+
+![DevKeyboard Layout](http://devkeyboard.woodmantech.com/assets/images/layout.png)
+
 | Original Key  | Hold Down Shortcut | Editable? |
 | ------------- | ------------------ | ----------|
 | g  | < | Yes |
