@@ -89,7 +89,9 @@ You can disable a shortcut by following these steps:
 1. Click "Save".
 1. DevKeyboard will restart with your new settings, and now the key will behave as normal.
 
-### Editing DevKeyboard Code
+## License
 
-Please note that DevKeyboard.ahk will look for all of the icon files in it's parent folder. Simply move the icons from the icon folder to the parent folder of DevKeyboard.ahk.
+© 2015 Ben Woodman
+
+The source code and compiled releases are licensed under The MIT License (MIT). Read the license information [here](https://github.com/babin101/DevKeyboard/blob/master/LICENSE.md).
 
