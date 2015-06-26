@@ -8,12 +8,13 @@ FileRead, latestversion, %A_AppData%\DevKeyboard\Latest_Version.txt
 
 if not ErrorLevel  ; Successfully loaded.
 {
-    if latestversion > 1.3
+    if latestversion > 1.31
 	{
 		MsgBox NEW UPDATE: Please press "OK" to update DevKeyboard to version %latestversion%.
 			if not ErrorLevel 
 			{
 			Run, http://devkeyboard.woodmantech.com/update-devkeyboard.html
+			ExitApp
 			}
 		
 		
@@ -174,7 +175,7 @@ Gui, Add, Edit, r1 vPEdit
 
 Gui, Add, Checkbox, vSemicolonEdit, Enable semicolon`nshortcut key
 Gui, Add, Button, gYouPressed, Save
-Gui, Add, Text,, DevKeyboard Version 1.3
+Gui, Add, Text,, DevKeyboard Version 1.3.1
 
 FileRead, FileContents, %A_AppData%\DevKeyboard\time.txt
 time = %FileContents%
@@ -564,8 +565,8 @@ if var dkey
 	if errorlevel
 		send {BS 1}{Raw}%dkey%
 		KeyWait, d, U
-	Return
 }
+Return
 
 $k::
 send {k}
