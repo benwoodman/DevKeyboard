@@ -8,7 +8,7 @@ FileRead, latestversion, %A_AppData%\DevKeyboard\Latest_Version.txt
 
 if not ErrorLevel  ; Successfully loaded.
 {
-    if latestversion > 1.4
+    if latestversion > 1.31
 	{
 		MsgBox, 1,, NEW UPDATE: Please press "OK" to update DevKeyboard to version %latestversion%.
 			IfMsgBox Ok  
@@ -72,7 +72,6 @@ IfNotExist %A_AppData%\DevKeyboard\N.txt
 
 IfNotExist %A_AppData%\DevKeyboard\M.txt 
 	FileAppend, ", %A_AppData%\DevKeyboard\M.txt 
-
 IfNotExist %A_AppData%\DevKeyboard\Comma.txt 
 	FileAppend, &&, %A_AppData%\DevKeyboard\Comma.txt 
 
@@ -108,10 +107,6 @@ IfNotExist %A_AppData%\DevKeyboard\O.txt
 
 IfNotExist %A_AppData%\DevKeyboard\P.txt 
 	FileAppend,, %A_AppData%\DevKeyboard\P.txt 
-
-IfNotExist %A_AppData%\DevKeyboard\OpenAuto.txt 
-	FileAppend,, %A_AppData%\DevKeyboard\OpenAuto.txt 
-
 
 
 Gui, Add, Text,, Hold Down Time:
@@ -172,10 +167,10 @@ Gui, Add, Edit, r1 vOEdit
 Gui, Add, Text,ym, Edit P:
 Gui, Add, Edit, r1 vPEdit
 
+
 Gui, Add, Checkbox, vSemicolonEdit, Enable semicolon`nshortcut key
-Gui, Add, Checkbox, vOpenAutoEdit, Enable AutoStart
 Gui, Add, Button, gYouPressed, Save
-Gui, Add, Text,, DevKeyboard Version 1.4
+Gui, Add, Text,, DevKeyboard Version 1.3.1
 
 FileRead, FileContents, %A_AppData%\DevKeyboard\time.txt
 time = %FileContents%
@@ -264,21 +259,6 @@ okey = %FileContentsO%
 FileRead, FileContentsP, %A_AppData%\DevKeyboard\P.txt
 pkey = %FileContentsP%
 
-FileRead, FileContentsOpenAuto, %A_AppData%\DevKeyboard\OpenAuto.txt
-openautokey = %FileContentsOpenAuto%
-
-if var FileContentsOpenAuto = "true"
-	{
-		IfNotExist %A_AppData%\Microsoft\Windows\Start Menu\Programs\Startup\DevKeyboard.lnk
-			FileCreateShortcut, %A_ScriptDir%\DevKeyboard.exe, %A_AppData%\Microsoft\Windows\Start Menu\Programs\Startup\DevKeyboard.lnk
-	}
-	Else {
-		IfExist %A_AppData%\Microsoft\Windows\Start Menu\Programs\Startup\DevKeyboard.lnk
-			FileDelete, %A_AppData%\Microsoft\Windows\Start Menu\Programs\Startup\DevKeyboard.lnk
-	}
-
-
-
 Menu, Tray, Icon, %A_ScriptDir%\Power-ON.ico, 1, 1
 
 
@@ -288,7 +268,6 @@ Menu, tray, add, Settings, settings
 
 #j:: 
 Suspend
-SoundPlay, sound.wav
 if A_IsSuspended = 1
 Menu, Tray, Icon, %A_ScriptDir%\Power-OFF.ico, 1, 1
 Else
@@ -329,11 +308,6 @@ GuiControl,, PEdit, %FileContentsP%
 if var FileContentsSemicolon = "true"
 {
 	GuiControl,, SemicolonEdit, 1
-}
-
-if var FileContentsOpenAuto = "true"
-{
-	GuiControl,, OpenAutoEdit, 1
 }
 
 Gui, +Resize
@@ -521,17 +495,6 @@ if SemicolonEdit = 1
 Else
 	FileAppend,, %A_AppData%\DevKeyboard\Semicolon.txt
 
-GuiControlGet, OpenAutoEdit
-OpenAutoNew = %OpenAutoEdit%
-FileDelete, %A_AppData%\DevKeyboard\OpenAuto.txt
-FileAppend, %A_AppData%\DevKeyboard\OpenAuto.txt
-if OpenAutoEdit = 1 
-{
-	FileAppend, true, %A_AppData%\DevKeyboard\OpenAuto.txt
-}
-Else
-	FileAppend,, %A_AppData%\DevKeyboard\OpenAuto.txt
-
 FileRead, FileContents, %A_AppData%\DevKeyboard\time.txt
 time = %FileContents%
 
@@ -552,7 +515,7 @@ if var gkey
 		KeyWait, g, U
 }
 Return
-
+	
 $h::
 send {h}
 
@@ -576,7 +539,6 @@ if var fkey
 		KeyWait, f, U
 	Return
 }
-Return
 
 $j::
 send {j}
@@ -589,7 +551,6 @@ if var jkey
 		KeyWait, j, U
 	Return
 }
-Return
 
 $d::
 send {d}
@@ -600,7 +561,6 @@ if var dkey
 	if errorlevel
 		send {BS 1}{Raw}%dkey%
 		KeyWait, d, U
-	Return
 }
 Return
 
