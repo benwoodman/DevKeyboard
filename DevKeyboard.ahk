@@ -10,17 +10,13 @@ if not ErrorLevel  ; Successfully loaded.
 {
     if latestversion > 1.31
 	{
-		MsgBox NEW UPDATE: Please press "OK" to update DevKeyboard to version %latestversion%.
-			if not ErrorLevel 
+		MsgBox, 1,, NEW UPDATE: Please press "OK" to update DevKeyboard to version %latestversion%.
+			IfMsgBox Ok  
 			{
-			Run, http://devkeyboard.woodmantech.com/update-devkeyboard.html
-			ExitApp
-			}
-		
-		
-	}
-	
-	
+				Run, http://devkeyboard.woodmantech.com/update-devkeyboard.html
+				ExitApp
+			}	
+	}	
 }
 
 IfNotExist %A_AppData%\DevKeyboard
