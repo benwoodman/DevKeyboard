@@ -315,6 +315,7 @@ if var FileContentsSemicolon = "true"
 	GuiControl,, SemicolonEdit, 1
 }
 
+Gui, +Resize
 Gui, Show, w535 h440, Settings
 return
 
