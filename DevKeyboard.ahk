@@ -180,10 +180,11 @@ Gui, Add, Text,, Hold Down Time:
 Gui, Add, Edit, r1 vCommaEdit ym
 Gui, Add, Edit, R1 vTimeSetting 
 
-Gui, Add, Text, xs, DevKeyboard Version 1.4
-Gui, Add, Checkbox, vSemicolonEdit, Enable semicolon shortcut key
+Gui, Add, Checkbox, xs vSemicolonEdit, Enable semicolon shortcut key
 Gui, Add, Checkbox, vOpenAutoEdit, Enable AutoStart
+Gui, Add, Text,, DevKeyboard Version 1.4
 Gui, Add, Button, gYouPressed, Save
+
 
 FileRead, FileContents, %A_AppData%\DevKeyboard\time.txt
 time = %FileContents%
