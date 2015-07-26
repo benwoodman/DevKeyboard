@@ -112,8 +112,6 @@ IfNotExist %A_AppData%\DevKeyboard\P.txt
 IfNotExist %A_AppData%\DevKeyboard\OpenAuto.txt 
 	FileAppend,, %A_AppData%\DevKeyboard\OpenAuto.txt 
 
-
-
 Gui, Add, Text,, Edit G:
 Gui, Add, Text,, Edit H:
 Gui, Add, Text,, Edit F:
@@ -172,16 +170,20 @@ Gui, Add, Edit, r1 vBEdit
 Gui, Add, Edit, r1 vNEdit
 Gui, Add, Edit, r1 vMEdit
 
-Gui, Add, Text, ym, Edit Comma:
-Gui, Add, Edit, r1 vCommaEdit
-
+; +Section creates a "section", so further columning done with ys or ym
+; (instead of ym and xm) works relative to only that section and the objects 
+; int it. In short, useful for nesting columns.
+Gui, Add, Text, ym +Section, Edit Comma:
 Gui, Add, Text,, Hold Down Time:
+
+
+Gui, Add, Edit, r1 vCommaEdit ym
 Gui, Add, Edit, R1 vTimeSetting 
 
-Gui, Add, Checkbox, vSemicolonEdit, Enable semicolon`nshortcut key
+Gui, Add, Text, xs, DevKeyboard Version 1.4
+Gui, Add, Checkbox, vSemicolonEdit, Enable semicolon shortcut key
 Gui, Add, Checkbox, vOpenAutoEdit, Enable AutoStart
 Gui, Add, Button, gYouPressed, Save
-Gui, Add, Text,, DevKeyboard Version 1.4
 
 FileRead, FileContents, %A_AppData%\DevKeyboard\time.txt
 time = %FileContents%
