@@ -647,7 +647,7 @@ if var semicolonkey
 {
 	KeyWait `;, t%time%
 	if errorlevel
-		send {BS 1}{Right}{Raw};
+		send {BS 1}{End}{Raw};
 		KeyWait, `;, U
 }
 Return
