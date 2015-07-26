@@ -114,8 +114,6 @@ IfNotExist %A_AppData%\DevKeyboard\OpenAuto.txt
 
 
 
-Gui, Add, Text,, Hold Down Time:
-
 Gui, Add, Text,, Edit G:
 Gui, Add, Text,, Edit H:
 Gui, Add, Text,, Edit F:
@@ -130,8 +128,8 @@ Gui, Add, Text,, Edit X:
 Gui, Add, Text,, Edit C:
 Gui, Add, Text,, Edit Q:
 
-Gui, Add, Edit, R1 vTimeSetting ym
-Gui, Add, Edit, r1 vGEdit
+
+Gui, Add, Edit, r1 vGEdit ym
 Gui, Add, Edit, r1 vHEdit
 Gui, Add, Edit, r1 vFEdit
 Gui, Add, Edit, r1 vJEdit
@@ -145,7 +143,7 @@ Gui, Add, Edit, r1 vXEdit
 Gui, Add, Edit, r1 vCEdit
 Gui, Add, Edit, r1 vQEdit
 
-Gui, Add, Text,ym, Edit W:
+Gui, Add, Text, ym, Edit W:
 Gui, Add, Text,, Edit E:
 Gui, Add, Text,, Edit R:
 Gui, Add, Text,, Edit T:
@@ -158,7 +156,7 @@ Gui, Add, Text,, Edit V:
 Gui, Add, Text,, Edit B:
 Gui, Add, Text,, Edit N:
 Gui, Add, Text,, Edit M:
-Gui, Add, Text,, Edit Comma:
+
 
 Gui, Add, Edit, r1 vWEdit ym
 Gui, Add, Edit, r1 vEEdit
@@ -173,9 +171,14 @@ Gui, Add, Edit, r1 vVEdit
 Gui, Add, Edit, r1 vBEdit
 Gui, Add, Edit, r1 vNEdit
 Gui, Add, Edit, r1 vMEdit
+
+Gui, Add, Text, ym, Edit Comma:
 Gui, Add, Edit, r1 vCommaEdit
 
-Gui, Add, Checkbox, vSemicolonEdit ym, Enable semicolon`nshortcut key
+Gui, Add, Text,, Hold Down Time:
+Gui, Add, Edit, R1 vTimeSetting 
+
+Gui, Add, Checkbox, vSemicolonEdit, Enable semicolon`nshortcut key
 Gui, Add, Checkbox, vOpenAutoEdit, Enable AutoStart
 Gui, Add, Button, gYouPressed, Save
 Gui, Add, Text,, DevKeyboard Version 1.4
