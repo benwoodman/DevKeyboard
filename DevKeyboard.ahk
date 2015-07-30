@@ -551,7 +551,12 @@ Reload
 return
 
 $g::
-send {g}
+if var capsState = 1 {
+	send {G}
+}
+Else {
+	send {g}
+}	
 
 if var gkey 
 {
@@ -563,7 +568,12 @@ if var gkey
 Return
 
 $h::
-send {h}
+if var capsState = 1 {
+	send {H}
+}
+Else {
+	send {h}
+}
 
 if var hkey 
 {
@@ -575,7 +585,12 @@ if var hkey
 Return
 
 $f::
-send {f}
+if var capsState = 1 {
+	send {F}
+}
+Else {
+	send {f}
+}
 
 if var fkey 
 {	
@@ -588,7 +603,12 @@ if var fkey
 Return
 
 $j::
-send {j}
+if var capsState = 1 {
+	send {J}
+}
+Else {
+	send {j}
+}
 
 if var jkey 
 {
@@ -601,7 +621,12 @@ if var jkey
 Return
 
 $d::
-send {d}
+if var capsState = 1 {
+	send {D}
+}
+Else {
+	send {d}
+}
 
 if var dkey 
 {
@@ -614,7 +639,12 @@ if var dkey
 Return
 
 $k::
-send {k}
+if var capsState = 1 {
+	send {K}
+}
+Else {
+	send {k}
+}
 
 if var kkey
 {
@@ -626,7 +656,12 @@ if var kkey
 Return
 
 $s::
-send {s}
+if var capsState = 1 {
+	send {S}
+}
+Else {
+	send {s}
+}
 
 if var skey 
 {
@@ -638,7 +673,12 @@ if var skey
 Return
 
 $a::
-send {a}
+if var capsState = 1 {
+	send {A}
+}
+Else {
+	send {a}
+}
 
 if var akey 
 {
@@ -662,7 +702,12 @@ if var semicolonkey
 Return
 
 $l::
-send {l}
+if var capsState = 1 {
+	send {L}
+}
+Else {
+	send {l}
+}
 
 if var lkey 
 {
@@ -674,7 +719,12 @@ if var lkey
 Return
 
 $z::
-send {z}
+if var capsState = 1 {
+	send {Z}
+}
+Else {
+	send {z}
+}
 
 if var zkey 
 {
@@ -686,7 +736,12 @@ if var zkey
 Return
 
 $x::
-send {x}
+if var capsState = 1 {
+	send {X}
+}
+Else {
+	send {x}
+}
 
 if var xkey 
 {
@@ -698,7 +753,12 @@ if var xkey
 Return
 
 $c::
-send {c}
+if var capsState = 1 {
+	send {C}
+}
+Else {
+	send {c}
+}
 
 if var ckey 
 {
@@ -710,7 +770,12 @@ if var ckey
 Return
 
 $v::
-send {v}
+if var capsState = 1 {
+	send {V}
+}
+Else {
+	send {v}
+}
 
 if var vkey 
 {
@@ -722,7 +787,12 @@ if var vkey
 Return
 
 $b::
-send {b}
+if var capsState = 1 {
+	send {B}
+}
+Else {
+	send {b}
+}
 
 if var bkey 
 {
@@ -734,7 +804,12 @@ if var bkey
 Return
 
 $n::
-send {n}
+if var capsState = 1 {
+	send {N}
+}
+Else {
+	send {n}
+}
 
 if var nkey 
 {
@@ -746,7 +821,12 @@ if var nkey
 Return
 
 $m::
-send {m}
+if var capsState = 1 {
+	send {M}
+}
+Else {
+	send {m}
+}
 
 if var mkey 
 {
@@ -770,7 +850,12 @@ if var commakey
 Return
 
 $q::
-send {q}
+if var capsState = 1 {
+	send {Q}
+}
+Else {
+	send {q}
+}
 
 if var qkey 
 {
@@ -782,7 +867,12 @@ if var qkey
 Return
 
 $w::
-send {w}
+if var capsState = 1 {
+	send {W}
+}
+Else {
+	send {w}
+}
 
 if var wkey 
 {
@@ -794,7 +884,12 @@ if var wkey
 Return
 
 $e::
-send {e}
+if var capsState = 1 {
+	send {E}
+}
+Else {
+	send {e}
+}
 
 if var ekey 
 {
@@ -806,7 +901,12 @@ if var ekey
 Return
 
 $r::
-send {r}
+if var capsState = 1 {
+	send {R}
+}
+Else {
+	send {r}
+}
 
 if var rkey 
 {
@@ -818,7 +918,12 @@ if var rkey
 Return
 
 $t::
-send {t}
+if var capsState = 1 {
+	send {T}
+}
+Else {
+	send {t}
+}
 
 if var tkey 
 {
@@ -830,7 +935,12 @@ if var tkey
 Return
 
 $y::
-send {y}
+if var capsState = 1 {
+	send {Y}
+}
+Else {
+	send {y}
+}
 
 if var ykey 
 {
@@ -842,7 +952,12 @@ if var ykey
 Return
 
 $u::
-send {u}
+if var capsState = 1 {
+	send {U}
+}
+Else {
+	send {u}
+}
 
 if var ukey 
 {
@@ -854,7 +969,12 @@ if var ukey
 Return
 
 $i::
-send {i}
+if var capsState = 1 {
+	send {I}
+}
+Else {
+	send {i}
+}
 
 if var ikey 
 {
@@ -866,7 +986,12 @@ if var ikey
 Return
 
 $o::
-send {o}
+if var capsState = 1 {
+	send {O}
+}
+Else {
+	send {o}
+}
 
 if var okey 
 {
@@ -878,7 +1003,12 @@ if var okey
 Return
 
 $p::
-send {p}
+if var capsState = 1 {
+	send {P}
+}
+Else {
+	send {p}
+}
 
 if var pkey 
 {
@@ -886,5 +1016,16 @@ if var pkey
 	if errorlevel
 		send {BS 1}{Raw}%pkey%
 		KeyWait, p, U
+}
+Return
+
+$CapsLock::
+if var capsState = 1 {
+	capsState = 0
+	TrayTip, CapsLock is Off, CapsLock is now turned off
+}
+Else {
+	capsState = 1
+	TrayTip, CapsLock is On, CapsLock is now turned on
 }
 Return
