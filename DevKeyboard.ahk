@@ -1,5 +1,6 @@
 Menu, Tray, Icon, %A_ScriptDir%\Power-LOAD.ico, 1, 1
 
+
 #SingleInstance ignore
 
 UrlDownloadToFile, http://woodmantech.com/versions/DevKeyboardVersion.txt, %A_AppData%\DevKeyboard\Latest_Version.txt
@@ -289,6 +290,7 @@ if var FileContentsOpenAuto = "true"
 
 
 Menu, Tray, Icon, %A_ScriptDir%\Power-ON.ico, 1, 1
+TrayTip, Welcome to DevKeyboard, DevKeyboard is now open
 
 
 Menu, tray, add  ; Creates a separator line.
