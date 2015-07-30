@@ -1,4 +1,5 @@
 Menu, Tray, Icon, %A_ScriptDir%\Power-LOAD.ico, 1, 1
+Menu, Tray, Tip, DevKeyboard - Enabled
 
 
 #SingleInstance ignore
@@ -9,7 +10,7 @@ FileRead, latestversion, %A_AppData%\DevKeyboard\Latest_Version.txt
 
 if not ErrorLevel  ; Successfully loaded.
 {
-    if latestversion > 1.4
+    if latestversion > 1.5
 	{
 		MsgBox, 1,, NEW UPDATE: Please press "OK" to update DevKeyboard to version %latestversion%.
 			IfMsgBox Ok  
@@ -183,7 +184,7 @@ Gui, Add, Edit, R1 vTimeSetting
 
 Gui, Add, Checkbox, xs vSemicolonEdit, Enable semicolon shortcut key
 Gui, Add, Checkbox, vOpenAutoEdit, Enable AutoStart
-Gui, Add, Text,, DevKeyboard Version 1.4
+Gui, Add, Text,, DevKeyboard Version 1.5
 Gui, Add, Button, gYouPressed, Save
 
 
@@ -287,6 +288,14 @@ if var FileContentsOpenAuto = "true"
 			FileDelete, %A_AppData%\Microsoft\Windows\Start Menu\Programs\Startup\DevKeyboard.lnk
 	}
 
+GetKeyState, capsState, CapsLock, T
+if capsState = D 
+{
+	capsState = 1
+}
+Else {
+	capsState = 0
+}
 
 
 Menu, Tray, Icon, %A_ScriptDir%\Power-ON.ico, 1, 1
@@ -301,14 +310,25 @@ Menu, tray, add, Settings, settings
 Suspend
 if A_IsSuspended = 1 
 {
-Menu, Tray, Icon, %A_ScriptDir%\Power-OFF.ico, 1, 1
-SoundPlay, off-sound.wav
-TrayTip, DevKeyboard Disabled, DevKeyboard is now disabled
+	Menu, Tray, Icon, %A_ScriptDir%\Power-OFF.ico, 1, 1
+	SoundPlay, off-sound.wav
+	TrayTip, DevKeyboard Disabled, DevKeyboard is now disabled
+	Menu, Tray, Tip, DevKeyboard - Disabled
 }
 Else {
-Menu, Tray, Icon, %A_ScriptDir%\Power-ON.ico, 1, 1
-SoundPlay, on-sound.wav
-TrayTip,DevKeyboard Enabled, DevKeyboard is now enabled
+	Menu, Tray, Icon, %A_ScriptDir%\Power-ON.ico, 1, 1
+	SoundPlay, on-sound.wav
+	TrayTip,DevKeyboard Enabled, DevKeyboard is now enabled
+	Menu, Tray, Tip, DevKeyboard - Enabled
+
+	GetKeyState, capsState, CapsLock, T
+	if capsState = D 
+	{
+		capsState = 1
+	}
+	Else {
+		capsState = 0
+	}
 }
 Return
 
@@ -1029,8 +1049,11 @@ Return
 
 ~CapsLock::
 GetKeyState, capsState, CapsLock, T
-if capsState = D
+if capsState = D 
+{
 	capsState = 1
-Else
+}
+Else {
 	capsState = 0
+}
 Return
