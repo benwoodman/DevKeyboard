@@ -1019,13 +1019,10 @@ if var pkey
 }
 Return
 
-$CapsLock::
-if var capsState = 1 {
-	capsState = 0
-	TrayTip, CapsLock is Off, CapsLock is now turned off
-}
-Else {
+~CapsLock::
+GetKeyState, capsState, CapsLock, T
+if capsState = D
 	capsState = 1
-	TrayTip, CapsLock is On, CapsLock is now turned on
-}
+Else
+	capsState = 0
 Return
