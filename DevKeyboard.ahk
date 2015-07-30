@@ -299,11 +299,17 @@ Menu, tray, add, Settings, settings
 
 #j:: 
 Suspend
-SoundPlay, sound.wav
-if A_IsSuspended = 1
+if A_IsSuspended = 1 
+{
 Menu, Tray, Icon, %A_ScriptDir%\Power-OFF.ico, 1, 1
-Else
+SoundPlay, off-sound.wav
+TrayTip, DevKeyboard Disabled, DevKeyboard is now disabled
+}
+Else {
 Menu, Tray, Icon, %A_ScriptDir%\Power-ON.ico, 1, 1
+SoundPlay, on-sound.wav
+TrayTip,DevKeyboard Enabled, DevKeyboard is now enabled
+}
 Return
 
 
