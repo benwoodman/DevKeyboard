@@ -39,7 +39,7 @@ Layout of DevKeyboard's default layout. This layout can be changed very easily. 
 | s  | [ | Yes |
 | l  | ] | Yes |
 | a  | ! | Yes |
-| ;  | (right arrow) + ; | No, but can be disabled |
+| ;  | <End> + ; | No, but can be disabled |
 | z  | ` | Yes |
 | x  | + | Yes |
 | c  | & | Yes |
